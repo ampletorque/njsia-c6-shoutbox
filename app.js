@@ -8,6 +8,7 @@ var favicon = require('serve-favicon');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var entries = require('./routes/entries');
+var validate = require('./middleware/validate');
 
 var app = express();
 
@@ -25,7 +26,10 @@ app.use('/', entries.list);
 app.use('/users', users);
 
 app.get('/post', entries.form);
-app.post('/post', entries.submit);
+app.post('/post', 
+        validate.required('entry[title]'),
+        validate.lengthAbove('entry[title]', 4),
+        entries.submit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

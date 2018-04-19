@@ -34,6 +34,18 @@ class User {
                 });
         }
 
+        hashPassword(cb) {
+                bcrypt.genSalt(12, (err, salt) => {
+                        if (err) return cb(err);
+                        this.salt = salt;
+                        bcrypt.hash(this.pass, salt, (err, hash) => {
+                                if (err) return cb(err);
+                                this.pass = hash;
+                                cb();
+                        });
+                });
+        }
+
 }
 
 module.exports = User;

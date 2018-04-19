@@ -1,6 +1,7 @@
 const Entry = require('../models/entry');
 
 exports.list = (req, res, next) => {
+        const page = req.page;
         Entry.getRange(0, -1, (err, entries) => {
                 if (err) return next(err);
                 res.render('entries', {
@@ -22,7 +23,8 @@ exports.submit = (req, res, next) => {
                 username: username,
                 title: data.title,
                 body: data.body
-        });entry.save((err) => {
+        });
+        entry.save((err) => {
                 if (err) return next(err);
                         res.redirect('/');
         });

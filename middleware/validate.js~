@@ -1,5 +1,3 @@
-'use strict';
-
 function parseField(field) {
         return field
         .split(/\[|\]/)

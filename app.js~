@@ -8,6 +8,7 @@ var favicon = require('serve-favicon');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var entries = require('./routes/entries');
+var validate = require('./middleware/validate');
 
 var app = express();
 

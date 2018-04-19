@@ -23,7 +23,7 @@ exports.submit = (req, res, next) => {
                 title: data.title,
                 body: data.body
         });entry.save((err) => {
-                if (err_ return next(err);
+                if (err) return next(err);
                         res.redirect('/');
         });
 };

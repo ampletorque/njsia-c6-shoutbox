@@ -8,6 +8,17 @@ class Entry {
                 }
         }
 
+        static getRange(from, to, cb) {
+                db.lrange('entries', from, to, (err, items) => {
+                        if (err) return cb (err);
+                        let entries = [];
+                        items.forEach((item) => {
+                                entries.push(JSON.parse(item));
+                        });
+                        cb(null, entries);
+                });
+        }
+
         save(cb) {
                 const entryJSON = JSON.stringify(this);
                 db.lpush(
@@ -19,5 +30,10 @@ class Entry {
                         }
                 );
         }
+
+        static count(cb) {
+                db.llen('entries', cb);
+        }
 }
 
+module.exports = Entry;

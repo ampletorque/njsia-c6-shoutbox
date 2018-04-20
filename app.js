@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var entries = require('./routes/entries');
 var validate = require('./middleware/validate');
+var register = require('/routes/register');
 
 var app = express();
 
@@ -24,6 +25,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/register', register.form);
+app.post('/register', register.submit);
 
 app.use('/users', users);
 

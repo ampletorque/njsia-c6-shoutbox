@@ -46,6 +46,24 @@ class User {
                 });
         }
 
+        static getByName(name, cb) {
+                User.getId(name, (err, id) => {
+                        if (err) return cb(err);
+                        User.get(id, cb);
+                });
+        }
+        
+        static getId(name, cb) {
+                db.get(`user:id:${namei}`, cb);
+                }
+
+        static get(id, cb) {
+                db.hgetall(`user:${id}`, (err, user) => {
+                        if (err) return cb(err);
+                        cb(null, new User(user));
+                });
+        }
+
 }
 
 module.exports = User;

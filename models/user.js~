@@ -16,7 +16,7 @@ class User {
                         db.incr('user:ids', (err, id) => {
                                 if (err) return cb(err);
                                 this.id = id;
-                                this.hasPassword((err) => {
+                                this.hashPassword((err) => {
                                         if (err) return cb(err);
                                         this.update(cb);
                                 });

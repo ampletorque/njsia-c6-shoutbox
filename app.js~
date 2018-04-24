@@ -32,8 +32,6 @@ app.use(session({
         resave: false, saveUninitialized: true
 }));
 
-res.error = msg => this.message(msg, 'error');
-
 app.get('/register', register.form);
 app.post('/register', register.submit);
 

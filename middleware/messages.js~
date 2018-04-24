@@ -8,3 +8,5 @@ function message(req) {
                 sess.messages.push({ type: type, string: msg});
         };
 };
+
+res.error = msg => this.message(msg, 'error');

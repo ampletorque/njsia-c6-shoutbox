@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var entries = require('./routes/entries');
 var validate = require('./middleware/validate');
-var register = require('/routes/register');
+var register = require('./routes/register');
 
 var app = express();
 

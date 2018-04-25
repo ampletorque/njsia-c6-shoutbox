@@ -2,7 +2,7 @@ const express = require('express');
 
 function message(req) {
         return (msg, type) => {
-                type = || 'info';
+                type = type || 'info';
                 let sess = req.session;
                 sess.messages = sess.messages || [];
                 sess.messages.push({ type: type, string: msg});

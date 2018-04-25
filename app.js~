@@ -6,6 +6,8 @@ var logger = require('morgan');
 var favicon = require('serve-favicon');
 var session = require('express-session');
 
+var messages = require('./middlware/messages');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var entries = require('./routes/entries');
@@ -25,6 +27,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({

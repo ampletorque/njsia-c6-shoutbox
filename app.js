@@ -6,7 +6,7 @@ var logger = require('morgan');
 var favicon = require('serve-favicon');
 var session = require('express-session');
 
-var messages = require('./middlware/messages');
+var messages = require('./middleware/messages');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

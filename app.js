@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var entries = require('./routes/entries');
 var validate = require('./middleware/validate');
 var register = require('./routes/register');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -37,6 +38,10 @@ app.use(session({
 
 app.get('/register', register.form);
 app.post('/register', register.submit);
+
+app.get('/login', login.form);
+app.post('/login', login.submit);
+app.get('/logout', login.logout);
 
 app.use('/users', users);
 

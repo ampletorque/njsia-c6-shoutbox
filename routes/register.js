@@ -14,7 +14,7 @@ exports.submit = (req, res, next) => {
                         res.error('Username already taken');
                         res.redirect('back');
                 } else {
-                        user = new Uwer({
+                        user = new User({
                                 name: data.name,
                                 pass: data.pass
                         });

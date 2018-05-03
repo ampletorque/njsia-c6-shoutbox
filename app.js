@@ -33,16 +33,16 @@ app.use(cookieParser());
 app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.session());
-app.use(express.static(__dirname + '/public'));
-app.use(user);
-app.use(messages);
-app.use(app.router);
-
 app.use(session({
         secret: 'secret',
         resave: false, saveUninitialized: true
 }));
+
+// app.use(express.session());
+app.use(express.static(__dirname + '/public'));
+app.use(user);
+app.use(messages);
+// app.use(app.router);
 
 app.get('/register', register.form);
 app.post('/register', register.submit);

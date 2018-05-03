@@ -15,7 +15,7 @@ var validate = require('./middleware/validate');
 var register = require('./routes/register');
 var login = require('./routes/login');
 
-var user = require('./middleware/user');
+// var user = require('./middleware/user');
 
 var app = express();
 
@@ -39,9 +39,9 @@ app.use(session({
 }));
 
 // app.use(express.session());
-app.use(express.static(__dirname + '/public'));
-app.use(user);
-app.use(messages);
+// app.use(express.static(__dirname + '/public'));
+// app.use(user);
+// app.use(messages);
 // app.use(app.router);
 
 app.get('/register', register.form);

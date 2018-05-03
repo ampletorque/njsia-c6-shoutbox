@@ -15,6 +15,8 @@ var validate = require('./middleware/validate');
 var register = require('./routes/register');
 var login = require('./routes/login');
 
+var user = require('./middleware/user');
+
 var app = express();
 
 // view engine setup
@@ -30,6 +32,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.session());
+app.use(express.static(__dirname + '/public'));
+app.use(user);
+app.use(messages);
+app.use(app.router);
 
 app.use(session({
         secret: 'secret',

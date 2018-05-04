@@ -41,6 +41,7 @@ app.use(session({
 
 app.use('/api', api.auth);
 app.use(user);
+app.get('/api/user/:id', api.user);
 
 // app.use(express.session());
 // app.use(express.static(__dirname + '/public'));

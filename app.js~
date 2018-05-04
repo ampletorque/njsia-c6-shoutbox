@@ -15,7 +15,7 @@ var validate = require('./middleware/validate');
 var register = require('./routes/register');
 var login = require('./routes/login');
 
-var user = require('./middleware/user');
+// var user = require('./middleware/user');
 
 var app = express();
 

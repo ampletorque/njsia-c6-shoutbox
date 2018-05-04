@@ -14,6 +14,7 @@ var entries = require('./routes/entries');
 var validate = require('./middleware/validate');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var api = require('./routes/api');
 
 // var user = require('./middleware/user');
 
@@ -37,6 +38,9 @@ app.use(session({
         secret: 'secret',
         resave: false, saveUninitialized: true
 }));
+
+app.use('/api', api.auth);
+app.use(user);
 
 // app.use(express.session());
 // app.use(express.static(__dirname + '/public'));

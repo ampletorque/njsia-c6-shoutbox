@@ -54,7 +54,7 @@ class User {
         }
         
         static getId(name, cb) {
-                db.get(`user:id:${namei}`, cb);
+                db.get(`user:id:${name}`, cb);
                 }
 
         static get(id, cb) {

@@ -24,8 +24,12 @@ exports.submit = (req, res, next) => {
                 title: data.title,
                 body: data.body
         });
-        entry.save((err) => {
+        entry.save(err => {
                 if (err) return next(err);
+                if (req.remoteUser) {
+                        res.json({ message: 'Eentry added.' });
+                } else {
                         res.redirect('/');
+                }
         });
 };

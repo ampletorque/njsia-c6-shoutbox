@@ -16,7 +16,8 @@ var register = require('./routes/register');
 var login = require('./routes/login');
 var api = require('./routes/api');
 
-// var user = require('./middleware/user');
+//
+var user = require('./middleware/user');
 
 var app = express();
 

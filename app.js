@@ -14,6 +14,7 @@ var entries = require('./routes/entries');
 var validate = require('./middleware/validate');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var page = require('./middleware/page.js');
 var api = require('./routes/api');
 var Entry = require('./models/entry');
 

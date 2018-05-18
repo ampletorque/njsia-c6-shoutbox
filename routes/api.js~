@@ -18,3 +18,11 @@ exports.user = (req, res, next) => {
                 res.json(user);
         });
 };
+
+exports.entries = (req, res, next) => {
+        const page = req.page;
+        Entry.getRange(page.from, page.to, (err, entries) => {
+                if (err) return next(err);
+                res.json(entries);
+        });
+};

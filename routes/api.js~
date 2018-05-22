@@ -1,7 +1,7 @@
 const auth = require('basic-auth');
 const express = require('express');
 const User = require('../models/user');
-const Entry = require('./models/entry');
+const Entry = require('../models/entry');
 
 exports.auth = (req, res, next) => {
         const { name, pass } = auth(req);

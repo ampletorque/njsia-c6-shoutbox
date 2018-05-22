@@ -28,18 +28,7 @@ exports.entries = (req, res, next) => {
                                 res.send(entries);
                         },
                         'application/xml': () => {
-                                res.write('<entries>\n');
-                                entries.forEach((entry) => {
-                                        res.write(```
-                                                <entry>
-                                                        <title>${entry.title}</title>
-                                                        <body>${entry.body}</body>
-                                                        <username>${entry.username}</username>
-                                                </entry>
-                                                ```
-                                        );
-                                });
-                                res.end('</entries>');
+                                res.render('entries/xml', { entries: entries });
                         }
                 })
         });
